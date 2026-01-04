@@ -11,4 +11,5 @@ public interface ITourist {
 	List<Tourist> fetchAllTouristInfo();
 	String updateTouristInfo(Tourist tourist);
 	String updateTouristBudget(Integer id,Integer budget);
+	String deleteTourist(Integer id);
 }

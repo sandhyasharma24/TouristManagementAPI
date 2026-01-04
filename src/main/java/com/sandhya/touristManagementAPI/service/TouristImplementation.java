@@ -60,4 +60,16 @@ public class TouristImplementation implements ITourist {
 		
 	}
 
+	@Override
+	public String deleteTourist(Integer id) {
+		Optional<Tourist> optional = repo.findById(id);
+		if(optional.isPresent()) {
+			repo.deleteById(id);
+			return "Tourist recored with id "+id+" has been successfully deleted";
+		}
+		else {
+			throw new TouristNotFoundException("Tourist could not be found to be deleted");
+		}
+	}
+
 }

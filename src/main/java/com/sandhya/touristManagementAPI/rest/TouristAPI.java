@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -49,7 +50,7 @@ public class TouristAPI {
 	        String tour = service.updateTouristInfo(tourist);
 	        return new ResponseEntity<>(tour, HttpStatus.OK);
 	    } catch (Exception e) {
-	        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+	        return new ResponseEntity<>(e.getMessage(),HttpStatus.BAD_REQUEST);
 	    }
 	}
 	
@@ -60,7 +61,18 @@ public class TouristAPI {
 			return new ResponseEntity<String>(tour,HttpStatus.OK);
 		}
 		catch(Exception e) {
-			return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	@DeleteMapping("/deleteTourist/{id}")
+	public ResponseEntity<String> updateTouristBudget(@PathVariable() Integer id){
+		try {
+			String tour=service.deleteTourist(id);
+			return new ResponseEntity<String>(tour,HttpStatus.OK);
+		}
+		catch(Exception e) {
+			return new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
 		}
 	}
 	
