@@ -11,8 +11,6 @@ public interface ITourist {
 	List<Tourist> fetchAllTouristInfo();
 	String updateTouristInfo(Tourist tourist);
 	String updateTouristBudget(Integer id,Integer budget);
-<<<<<<< HEAD
 	String deleteTourist(Integer id);
-=======
->>>>>>> branch 'master' of https://github.com/sandhyasharma24/TouristManagementAPI.git
+
 }

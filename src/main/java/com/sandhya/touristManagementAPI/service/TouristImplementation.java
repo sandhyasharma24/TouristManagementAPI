@@ -60,33 +60,6 @@ public class TouristImplementation implements ITourist {
 	}
 
 	@Override
-	public String updateTouristInfo(Tourist tourist) {
-		Optional<Tourist> tour = repo.findById(tourist.getId());
-		if(tour.isPresent()) {
-			repo.save(tourist);
-			return "tourist info is update with id "+tourist.getId();
-			}
-		else {
-			throw new TouristNotFoundException("Tourist could not be found to be updated");
-		}
-	}
-
-	@Override
-	public String updateTouristBudget(Integer id, Integer budget) {
-		Optional<Tourist> optional = repo.findById(id);
-		if(optional.isPresent()) {
-			Tourist tourist = optional.get();
-			tourist.setBudget(budget);
-			repo.save(tourist);
-			return "Tourist budget Info Updated successfully";
-		}
-		else {
-			throw new TouristNotFoundException("Tourist could not be found to be updated");
-		}
-		
-	}
-
-	@Override
 	public String deleteTourist(Integer id) {
 		Optional<Tourist> optional = repo.findById(id);
 		if(optional.isPresent()) {
