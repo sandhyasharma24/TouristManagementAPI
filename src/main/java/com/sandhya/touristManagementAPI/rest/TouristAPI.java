@@ -41,6 +41,27 @@ public class TouristAPI {
 	    }
 	}
 
+		@PutMapping("/updateTourist")
+	public ResponseEntity<String> updateTouristInfo(@RequestBody() Tourist tourist) {
+	    try {
+	        String tour = service.updateTouristInfo(tourist);
+	        return new ResponseEntity<>(tour, HttpStatus.OK);
+	    } catch (Exception e) {
+	        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+	    }
+	}
+	
+	@PatchMapping("/updateTouristBudget/{id}/{budget}")
+	public ResponseEntity<String> updateTouristBudget(@PathVariable() Integer id,@PathVariable() Integer budget){
+		try {
+			String tour=service.updateTouristBudget(id, budget);
+			return new ResponseEntity<String>(tour,HttpStatus.OK);
+		}
+		catch(Exception e) {
+			return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
+		}
+	}
+
 	
 
 }
