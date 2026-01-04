@@ -13,3 +13,6 @@ Spring Boot REST API for managing tourist information.
 - POST /regTourist
 - GET /getTourist/{id}
 - GET /getTouristInfo
+- PUT /updateTourist
+- PATCH /updateTouristBudget
+- DELETE /deleteTourist
