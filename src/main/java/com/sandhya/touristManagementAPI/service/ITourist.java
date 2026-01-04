@@ -9,4 +9,6 @@ public interface ITourist {
 	String RegTourist(Tourist tourist);
 	Tourist findTouristById(Integer Id) throws TouristNotFoundException;
 	List<Tourist> fetchAllTouristInfo();
+	String updateTouristInfo(Tourist tourist);
+	String updateTouristBudget(Integer id,Integer budget);
 }
